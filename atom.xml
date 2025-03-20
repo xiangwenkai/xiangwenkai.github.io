@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fallen petals</title>
+  
+  <subtitle>Blog</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2025-03-13T06:52:23.327Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Kaiwen</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2025/03/20/hello-world/"/>
+    <id>http://example.com/2025/03/20/hello-world/</id>
+    <published>2025-03-20T06:55:36.812Z</published>
+    <updated>2025-03-13T06:52:23.327Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Boltz</title>
+    <link href="http://example.com/2025/03/13/boltz/"/>
+    <id>http://example.com/2025/03/13/boltz/</id>
+    <published>2025-03-13T07:33:31.250Z</published>
+    <updated>2025-03-20T06:56:08.141Z</updated>
+    
+    <content type="html"><![CDATA[<div align="center">  <div>&nbsp;</div>  <img src="docs/boltz_title.png" width="400"/><p><a href="https://doi.org/10.1101/2024.11.19.624167">Paper</a> |<br><a href="https://join.slack.com/t/boltz-community/shared_invite/zt-2w0bw6dtt-kZU4png9HUgprx9NK2xXZw">Slack</a> <br> <br></p></div><p><img src="/docs/boltz1_pred_figure.png"></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Boltz-1 is the state-of-the-art open-source model to predict biomolecular structures containing combinations of proteins, RNA, DNA, and other molecules. It also supports modified residues, covalent ligands and glycans, as well as conditioning the prediction on specified interaction pockets or contacts. </p><p>All the code and weights are provided under MIT license, making them freely available for both academic and commercial uses. For more information about the model, see our <a href="https://doi.org/10.1101/2024.11.19.624167">technical report</a>. To discuss updates, tools and applications join our <a href="https://join.slack.com/t/boltz-community/shared_invite/zt-2w0bw6dtt-kZU4png9HUgprx9NK2xXZw">Slack channel</a>.</p><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Install boltz with PyPI (recommended):</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install boltz -U</span><br></pre></td></tr></table></figure><p>or directly from GitHub for daily updates:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/jwohlwend/boltz.git</span><br><span class="line">cd boltz; pip install -e .</span><br></pre></td></tr></table></figure><blockquote><p>Note: we recommend installing boltz in a fresh python environment</p></blockquote><h2 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h2><p>You can run inference using Boltz-1 with:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boltz predict input_path --use_msa_server</span><br></pre></td></tr></table></figure><p>Boltz currently accepts three input formats:</p><ol><li><p>Fasta file, for most use cases</p></li><li><p>A comprehensive YAML schema, for more complex use cases</p></li><li><p>A directory containing files of the above formats, for batched processing</p></li></ol><p>To see all available options: <code>boltz predict --help</code> and for more information on these input formats, see our <a href="docs/prediction.md">prediction instructions</a>.</p><h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>To encourage reproducibility and facilitate comparison with other models, we provide the evaluation scripts and predictions for Boltz-1, Chai-1 and AlphaFold3 on our test benchmark dataset as well as CASP15. These datasets are created to contain biomolecules different from the training data and to benchmark the performance of these models we run them with the same input MSAs and same number  of recycling and diffusion steps. More details on these evaluations can be found in our <a href="docs/evaluation.md">evaluation instructions</a>.</p><p><img src="/docs/plot_test.png" alt="Test set evaluations"><br><img src="/docs/plot_casp.png" alt="CASP15 set evaluations"></p><h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><p>If you’re interested in retraining the model, see our <a href="docs/training.md">training instructions</a>.</p><h2 id="Contributing"><a href="#Contributing" class="headerlink" title="Contributing"></a>Contributing</h2><p>We welcome external contributions and are eager to engage with the community. Connect with us on our <a href="https://join.slack.com/t/boltz-community/shared_invite/zt-2w0bw6dtt-kZU4png9HUgprx9NK2xXZw">Slack channel</a> to discuss advancements, share insights, and foster collaboration around Boltz-1.</p><h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>Our model and code are released under MIT License, and can be freely used for both academic and commercial purposes.</p><h2 id="Cite"><a href="#Cite" class="headerlink" title="Cite"></a>Cite</h2><p>If you use this code or the models in your research, please cite the following paper:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;wohlwend2024boltz1,</span><br><span class="line">  author = &#123;Wohlwend, Jeremy and Corso, Gabriele and Passaro, Saro and Reveiz, Mateo and Leidal, Ken and Swiderski, Wojtek and Portnoi, Tally and Chinn, Itamar and Silterra, Jacob and Jaakkola, Tommi and Barzilay, Regina&#125;,</span><br><span class="line">  title = &#123;Boltz-1: Democratizing Biomolecular Interaction Modeling&#125;,</span><br><span class="line">  year = &#123;2024&#125;,</span><br><span class="line">  doi = &#123;10.1101/2024.11.19.624167&#125;,</span><br><span class="line">  journal = &#123;bioRxiv&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In addition if you use the automatic MSA generation, please cite:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;mirdita2022colabfold,</span><br><span class="line">  title=&#123;ColabFold: making protein folding accessible to all&#125;,</span><br><span class="line">  author=&#123;Mirdita, Milot and Sch&#123;\&quot;u&#125;tze, Konstantin and Moriwaki, Yoshitaka and Heo, Lim and Ovchinnikov, Sergey and Steinegger, Martin&#125;,</span><br><span class="line">  journal=&#123;Nature methods&#125;,</span><br><span class="line">  year=&#123;2022&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div align=&quot;center&quot;&gt;
+  &lt;div&gt;&amp;nbsp;&lt;/div&gt;
+  &lt;img src=&quot;docs/boltz_title.png&quot; width=&quot;400&quot;/&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://doi.org/10.1101/2024.11.19.624</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
