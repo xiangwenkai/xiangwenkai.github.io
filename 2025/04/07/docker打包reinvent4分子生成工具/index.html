@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fallen petals" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="———————1.安装docker和启动（参考）————————–1.1 安装docker:123456sudo apt updatesudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-commoncurl -fsSL https:&#x2F;&#x2F;download.docker.co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fallen petals">
+<meta property="og:url" content="http://example.com/2025/04/07/docker%E6%89%93%E5%8C%85reinvent4%E5%88%86%E5%AD%90%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="Fallen petals">
+<meta property="og:description" content="———————1.安装docker和启动（参考）————————–1.1 安装docker:123456sudo apt updatesudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-commoncurl -fsSL https:&#x2F;&#x2F;download.docker.co">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-07T01:41:14.776Z">
+<meta property="article:modified_time" content="2025-04-07T01:35:50.765Z">
+<meta property="article:author" content="Kaiwen">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2025/04/07/docker打包reinvent4分子生成工具/"/>
+
+
+
+
+
+  <title> | Fallen petals</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fallen petals</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/07/docker%E6%89%93%E5%8C%85reinvent4%E5%88%86%E5%AD%90%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author_head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fallen petals">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2025-04-07T09:41:14+08:00">
+                2025-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="———————1-安装docker和启动（参考）————————–"><a href="#———————1-安装docker和启动（参考）————————–" class="headerlink" title="———————1.安装docker和启动（参考）————————–"></a>———————1.安装docker和启动（参考）————————–</h4><h5 id="1-1-安装docker"><a href="#1-1-安装docker" class="headerlink" title="1.1 安装docker:"></a>1.1 安装docker:</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | <span class="built_in">sudo</span> apt-key add -</span><br><span class="line"><span class="built_in">sudo</span> add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<h5 id="1-2-启动："><a href="#1-2-启动：" class="headerlink" title="1.2 启动："></a>1.2 启动：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /etc/init.d/docker start</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="——————————2-基础环境拉取———————————"><a href="#——————————2-基础环境拉取———————————" class="headerlink" title="——————————2.基础环境拉取———————————"></a>——————————2.基础环境拉取———————————</h4><p>对于后续要用到的环境，如anaconda3,需要提前拉取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull continuumio/anaconda3</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="—————-3-用docker创建虚拟环境reinvent4———————"><a href="#—————-3-用docker创建虚拟环境reinvent4———————" class="headerlink" title="—————-3.用docker创建虚拟环境reinvent4———————-"></a>—————-3.用docker创建虚拟环境reinvent4———————-</h4><h5 id="3-1-1方式一，通过导出环境配置文件安装虚拟环境"><a href="#3-1-1方式一，通过导出环境配置文件安装虚拟环境" class="headerlink" title="3.1.1方式一，通过导出环境配置文件安装虚拟环境"></a>3.1.1方式一，通过导出环境配置文件安装虚拟环境</h5><p>导出环境文件：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate reinvent4</span><br><span class="line">conda <span class="built_in">env</span> <span class="built_in">export</span> --no-builds &gt; environment.yml <span class="comment"># --no-builds表示是跨平台的</span></span><br><span class="line"><span class="comment"># 删除environment.yml最后一行</span></span><br></pre></td></tr></table></figure>
+
+<p>根据配置文件安装：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 普通模式</span></span><br><span class="line">FROM continuumio/anaconda3</span><br><span class="line"></span><br><span class="line">EXPOSE 5009</span><br><span class="line">COPY environment.yml .</span><br><span class="line"></span><br><span class="line">RUN conda <span class="built_in">env</span> create -f environment.yml</span><br><span class="line">RUN conda <span class="built_in">env</span> list</span><br><span class="line"></span><br><span class="line">SHELL [<span class="string">&quot;/bin/bash&quot;</span>, <span class="string">&quot;-c&quot;</span>]</span><br><span class="line">RUN <span class="built_in">echo</span> <span class="string">&quot;source activate reinvent4&quot;</span> &gt; ~/.bashrc</span><br><span class="line">ENV PATH /opt/conda/envs/env/bin:<span class="variable">$PATH</span></span><br><span class="line">CMD [<span class="string">&quot;/bin/bash&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-1-2方式二，直接本地复制环境（需要保证虚拟路径和本地路径一致）"><a href="#3-1-2方式二，直接本地复制环境（需要保证虚拟路径和本地路径一致）" class="headerlink" title="3.1.2方式二，直接本地复制环境（需要保证虚拟路径和本地路径一致）"></a>3.1.2方式二，直接本地复制环境（需要保证虚拟路径和本地路径一致）</h5><p>在项目根目录下创建Dockerfile文件（名字即为Dockerfile，无后缀）:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用一个轻量级的 Linux 基础镜像，如 Ubuntu 或 Debian</span></span><br><span class="line">FROM ubuntu:20.04</span><br><span class="line"><span class="comment"># 安装必要的依赖.libxrender1等包是由于运行环境发现缺少相关依赖后依次补充的</span></span><br><span class="line">RUN apt-get update &amp;&amp; apt-get install -y \</span><br><span class="line">    wget \</span><br><span class="line">    bzip2 \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    libxrender1 \</span><br><span class="line">    libxtst6 \</span><br><span class="line">    libxi6 \</span><br><span class="line">    libexpat1-dev \</span><br><span class="line">    &amp;&amp; <span class="built_in">rm</span> -rf /var/lib/apt/lists/*</span><br><span class="line"><span class="comment"># 下载并安装 Miniconda</span></span><br><span class="line">RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh &amp;&amp; \</span><br><span class="line">    /bin/bash ~/miniconda.sh -b -p /home/xiang_wenkai/anaconda3 &amp;&amp; \</span><br><span class="line">    <span class="built_in">rm</span> ~/miniconda.sh &amp;&amp; \</span><br><span class="line">    /home/xiang_wenkai/anaconda3/bin/conda clean --all -y</span><br><span class="line"><span class="comment"># 将 Conda 添加到 PATH</span></span><br><span class="line">ENV PATH=<span class="string">&quot;/opt/conda/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="comment"># 将本地 Conda 环境复制到镜像中</span></span><br><span class="line">COPY reinvent4 /home/xiang_wenkai/anaconda3/envs/reinvent4</span><br><span class="line"><span class="comment"># 激活环境（将环境的 bin 目录添加到 PATH）</span></span><br><span class="line">SHELL [<span class="string">&quot;/bin/bash&quot;</span>, <span class="string">&quot;-c&quot;</span>]</span><br><span class="line">ENV PATH=<span class="string">&quot;/home/xiang_wenkai/anaconda3/envs/reinvent4/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line">CMD [<span class="string">&quot;/bin/bash&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2根据Dockfile构建镜像环境："><a href="#3-2根据Dockfile构建镜像环境：" class="headerlink" title="3.2根据Dockfile构建镜像环境："></a>3.2根据Dockfile构建镜像环境：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t reinvent4 -f Dockerfile .</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-3保存本地镜像："><a href="#3-3保存本地镜像：" class="headerlink" title="3.3保存本地镜像："></a>3.3保存本地镜像：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images  <span class="comment"># 展示系统镜像</span></span><br><span class="line">docker save -o reinvent4.tar &#123;<span class="built_in">id</span>&#125;  <span class="comment"># 保存镜像ID为id的镜像</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-4执行镜像"><a href="#3-4执行镜像" class="headerlink" title="3.4执行镜像"></a>3.4执行镜像</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti --<span class="built_in">rm</span> &#123;<span class="built_in">id</span>&#125; bash</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="————–4-用docker创建的环境reinvent4，进一步创建推理镜像———–"><a href="#————–4-用docker创建的环境reinvent4，进一步创建推理镜像———–" class="headerlink" title="————–4.用docker创建的环境reinvent4，进一步创建推理镜像———–"></a>————–4.用docker创建的环境reinvent4，进一步创建推理镜像———–</h4><h5 id="4-1-准备Dockerfile"><a href="#4-1-准备Dockerfile" class="headerlink" title="4.1 准备Dockerfile"></a>4.1 准备Dockerfile</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM reinvent4</span><br><span class="line"></span><br><span class="line">COPY REINVENT4-main REINVENT4</span><br><span class="line"></span><br><span class="line">RUN <span class="built_in">chmod</span> -R 777 /REINVENT4/</span><br><span class="line"></span><br><span class="line">WORKDIR REINVENT4</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;inference.py&quot;</span>]</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-构建-Docker-镜像："><a href="#4-2-构建-Docker-镜像：" class="headerlink" title="4.2 构建 Docker 镜像："></a>4.2 构建 Docker 镜像：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">docker build -t reinvent_gen -f REINVENT4-main/Dockerfile .</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-3-传递参数，运行容器，测试分子生成场景："><a href="#4-3-传递参数，运行容器，测试分子生成场景：" class="headerlink" title="4.3 传递参数，运行容器，测试分子生成场景："></a>4.3 传递参数，运行容器，测试分子生成场景：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -v /home/xiang_wenkai/REINVENT4-main:/REINVENT4 --gpus all --<span class="built_in">rm</span> reinvent_gen --mode denovo --input_dir configs/toml --output_dir output --input_file no --output_file sampling_denovo.csv --num_smiles 100 --unique_molecules True --randomize_smiles True --device cuda:0 --<span class="built_in">log</span> sampling.log</span><br><span class="line">docker run -v /home/xiang_wenkai/REINVENT4-main:/REINVENT4 --gpus all --<span class="built_in">rm</span> reinvent_gen --mode scaffold --input_dir configs/toml --output_dir output --input_file warheads.smi --output_file sampling_scaffold.csv --num_smiles 100 --unique_molecules True --randomize_smiles True --device cuda:0 --<span class="built_in">log</span> sampling.log</span><br><span class="line">docker run -v /home/xiang_wenkai/REINVENT4-main:/REINVENT4 --gpus all --<span class="built_in">rm</span> reinvent_gen --mode <span class="built_in">link</span> --input_dir configs/toml --output_dir output --input_file warheads.smi --output_file sampling_link.csv --num_smiles 100 --unique_molecules True --randomize_smiles True --device cuda:0 --<span class="built_in">log</span> sampling.log</span><br><span class="line">docker run -v /home/xiang_wenkai/REINVENT4-main:/REINVENT4 --gpus all --<span class="built_in">rm</span> reinvent_gen --mode R-group --input_dir configs/toml --output_dir output --input_file scaffolds.smi --output_file sampling_rgroup.csv --num_smiles 100 --unique_molecules True --randomize_smiles True --device cuda:0 --<span class="built_in">log</span> sampling.log</span><br><span class="line">docker run -v /home/xiang_wenkai/REINVENT4-main:/REINVENT4 --gpus all --<span class="built_in">rm</span> reinvent_gen --mode mol2mol --input_dir configs/toml --output_dir output --input_file mol2mol.smi --output_file sampling_mol2mol.csv --num_smiles 100 --unique_molecules True --randomize_smiles True --device cuda:0 --<span class="built_in">log</span> sampling.log</span><br></pre></td></tr></table></figure>
+<h5 id="4-4-保存本地镜像："><a href="#4-4-保存本地镜像：" class="headerlink" title="4.4 保存本地镜像："></a>4.4 保存本地镜像：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images  <span class="comment"># 展示系统镜像</span></span><br><span class="line">docker save -o reinvent_gen.tar &#123;<span class="built_in">id</span>&#125;  <span class="comment"># 保存镜像ID为id的镜像</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="docker-加载打包完成的镜像："><a href="#docker-加载打包完成的镜像：" class="headerlink" title="docker 加载打包完成的镜像："></a>docker 加载打包完成的镜像：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i xxx.tar</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2025/03/21/MultiPPIMI%E5%A4%8D%E7%8E%B0%E5%B9%B6%E4%B8%AA%E6%80%A7%E5%8C%96%E9%A2%84%E6%B5%8B/" rel="next" title="MultiPPIMI复现并个性化预测">
+                <i class="fa fa-chevron-left"></i> MultiPPIMI复现并个性化预测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author_head.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%941-%E5%AE%89%E8%A3%85docker%E5%92%8C%E5%90%AF%E5%8A%A8%EF%BC%88%E5%8F%82%E8%80%83%EF%BC%89%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%93"><span class="nav-number">1.</span> <span class="nav-text">———————1.安装docker和启动（参考）————————–</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-%E5%AE%89%E8%A3%85docker"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装docker:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-%E5%90%AF%E5%8A%A8%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 启动：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%942-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E6%8B%89%E5%8F%96%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="nav-number">2.</span> <span class="nav-text">——————————2.基础环境拉取———————————</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94-3-%E7%94%A8docker%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83reinvent4%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="nav-number">3.</span> <span class="nav-text">—————-3.用docker创建虚拟环境reinvent4———————-</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-1%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%8C%E9%80%9A%E8%BF%87%E5%AF%BC%E5%87%BA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.</span> <span class="nav-text">3.1.1方式一，通过导出环境配置文件安装虚拟环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-2%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%8C%E7%9B%B4%E6%8E%A5%E6%9C%AC%E5%9C%B0%E5%A4%8D%E5%88%B6%E7%8E%AF%E5%A2%83%EF%BC%88%E9%9C%80%E8%A6%81%E4%BF%9D%E8%AF%81%E8%99%9A%E6%8B%9F%E8%B7%AF%E5%BE%84%E5%92%8C%E6%9C%AC%E5%9C%B0%E8%B7%AF%E5%BE%84%E4%B8%80%E8%87%B4%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">3.1.2方式二，直接本地复制环境（需要保证虚拟路径和本地路径一致）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2%E6%A0%B9%E6%8D%AEDockfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F%E7%8E%AF%E5%A2%83%EF%BC%9A"><span class="nav-number">3.3.</span> <span class="nav-text">3.2根据Dockfile构建镜像环境：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3%E4%BF%9D%E5%AD%98%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="nav-number">3.4.</span> <span class="nav-text">3.3保存本地镜像：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4%E6%89%A7%E8%A1%8C%E9%95%9C%E5%83%8F"><span class="nav-number">3.5.</span> <span class="nav-text">3.4执行镜像</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%934-%E7%94%A8docker%E5%88%9B%E5%BB%BA%E7%9A%84%E7%8E%AF%E5%A2%83reinvent4%EF%BC%8C%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%88%9B%E5%BB%BA%E6%8E%A8%E7%90%86%E9%95%9C%E5%83%8F%E2%80%94%E2%80%94%E2%80%94%E2%80%93"><span class="nav-number">4.</span> <span class="nav-text">————–4.用docker创建的环境reinvent4，进一步创建推理镜像———–</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-%E5%87%86%E5%A4%87Dockerfile"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 准备Dockerfile</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-%E6%9E%84%E5%BB%BA-Docker-%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 构建 Docker 镜像：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%EF%BC%8C%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%EF%BC%8C%E6%B5%8B%E8%AF%95%E5%88%86%E5%AD%90%E7%94%9F%E6%88%90%E5%9C%BA%E6%99%AF%EF%BC%9A"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 传递参数，运行容器，测试分子生成场景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-%E4%BF%9D%E5%AD%98%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 保存本地镜像：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-%E5%8A%A0%E8%BD%BD%E6%89%93%E5%8C%85%E5%AE%8C%E6%88%90%E7%9A%84%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="nav-number">4.5.</span> <span class="nav-text">docker 加载打包完成的镜像：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kaiwen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
